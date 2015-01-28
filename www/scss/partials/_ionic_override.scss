@@ -1,0 +1,56 @@
+body {
+  font-size: 16px;
+  font-family: 'latoregular', sans-serif;
+}
+
+#faqView, #docsView, #productsView{
+
+  div.img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background: url("../img/faq.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: none;
+    height: 700px;
+
+    &.docs {
+      background: url("../img/documents.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    &.products{
+      background: url("../img/products.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+  }
+
+
+}
+
+#recipient {
+
+  .button-bar {
+    position: relative;
+    top: 330px;
+  }
+
+  div.img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background: url("../img/recipient.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    height: 500px;
+  }
+
+}

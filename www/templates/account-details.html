@@ -1,0 +1,44 @@
+<ion-view view-title="{{ pageTitle }}" id="accountDetails" hide-nav-bar="false">
+    <div class="bar bar-subheader">
+        <div class="list">
+            <a class="item">
+                <div class="line">
+                    <span class="balance">Balance</span><span class="available">Available: {{ account.available | money }}</span>
+                </div>
+                <div class="line">
+                    <span number-format ng-model="account.balance" class="account-balance">{{ account.balance | money}}</span><span class="overdraft">Overdraft limit: {{ account.overdraft | money }}</span>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="bar bar-subheader2">
+        <a class="button button-clear  icon-left ion-ios7-arrow-back pull-left" ng-click="shuffle()">Nov</a>
+
+        <div class="month">{{ account.month }}</div>
+        <a class="button button-clear icon-right ion-ios7-arrow-forward pull-right" ng-click="shuffle()">Jan</a>
+    </div>
+    <ion-content class="has-subheader" has-bouncing="true">
+
+        <div class="list">
+            <a class="item item-icon-left item-icon-right" ng-repeat="tran in transactions" href="#" ng-click="details_click($index)" ng-class="{'expanded' : showDetails() == $index}">
+                <i ng-class=" tran.type == 'debit' ? 'icon ion-minus-round assertive' : 'icon ion-plus-round balanced' "></i>
+
+                <div class="line">
+                    <span class="account-name">{{ tran.name }}</span><span class="tnx-amount">&pound;{{ tran.amount }}</span>
+                </div>
+                <div class="line">
+                    <span class="account-details">{{ tran.date }}</span><span class="account-balance"> &pound;{{ tran.account.balance }}</span>
+                </div>
+
+                <div class="line details" ng-show="showDetails() == $index">
+                    <span>Type: ATM transaction</span>
+                    <span>Ref: Lorem ipsum dolar antler</span>
+                </div>
+
+                <i class="icon" ng-class="{'ion-chevron-down' : showDetails() != $index, 'ion-chevron-up' : showDetails() == $index}"></i>
+            </a>
+
+        </div>
+    </ion-content>
+
+</ion-view>

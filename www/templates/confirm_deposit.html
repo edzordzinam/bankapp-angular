@@ -1,0 +1,24 @@
+<ion-view view-title="Confirmation" id="confirmDepositView" class="accountsForm">
+    <ion-content has-bouncing="true">
+        <div class="list level0">
+            <a class="item  " href="#">
+                <span class="account-available">Amount:</span>
+                <span class="account-balance">{{ payment.deposit | money }}</span>
+
+                <span class="lblfrom">To</span>
+                <span class="account-name">{{ accountFrom.name }}</span>
+                <span class="account-number">{{ accountFrom.number }}</span>
+
+             </a>
+        </div>
+        <span class="form-header">
+            Please check the details and confirm your deposit.
+            <p>Use the back button to switch accounts</p>
+        </span>
+
+        <div class="button-bar twin-button">
+            <a class="button button-block register-button padding20" ng-href="#/app/selectaccount">Back</a>
+            <a class="button button-block register-button padding20" ng-href="#/app/myaccount/1">Confirm</a>
+        </div>
+    </ion-content>
+</ion-view>

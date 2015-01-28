@@ -1,0 +1,97 @@
+#myAccountsView {
+  .scroll-content {
+    top: 55px;
+    @extend .has-advert-footer;
+
+    .confirmation-msg {
+      padding: 5px 15px 10px 15px;
+      @include background($app-yellow);
+
+      h4 {
+        margin-bottom: 0;
+        color: $application_main_color;
+
+        i {
+          float: right;
+          cursor: pointer;
+
+          &:before {
+            background: white;
+            padding: 8px;
+            font-size: em(12);
+            @include border-radius(50%);
+            display: block;
+            height: 27px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .button {
+        width: 200px;
+        height: 25px;
+        line-height: 25px;
+        min-height: 25px;
+        font-size: em(18);
+        font-family: latomedium;
+        color: $application_main_color;
+        border: none;
+        @include background(white);
+        @include border-radius(6px);
+      }
+    }
+
+    .list {
+      .item {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-right: 42px;
+
+        .line {
+          display: block;
+          width: 100%;
+
+          span {
+            display: inline-block;
+            clear: both;
+            width: 50%;
+            height: auto;
+
+            @media all and (max-device-width: 480px) {
+              &.account-balance, &.account-details {
+                font-size: em(13);
+              }
+            }
+          }
+
+          .account-name, .tnx-amount {
+            text-align: left;
+            font-family: latobold;
+            color: $application_main_color;
+            font-size: em(19);
+          }
+
+          .tnx-amount {
+            text-align: right;
+          }
+
+          .account-details, .account-balance {
+            text-align: left;
+            font-family: Helvetica-Light;
+            font-size: em(16);
+          }
+
+          .account-balance {
+            text-align: right;
+          }
+
+        }
+
+      }
+    }
+  }
+
+  .bar-footer {
+    @extend .app-footer;
+  }
+}

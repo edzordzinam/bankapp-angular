@@ -1,0 +1,53 @@
+<ion-view view-title="Payments & Transfers" id="paymentsView">
+
+    <ion-content has-bouncing="true">
+        <div class="list level1">
+            <a class="item item-icon-left item-icon-right" href="#">
+                <i class="icon ion-chevron-left"></i>
+                <span class="lblfrom">From</span>
+                <span class="account-name">{{ account.name }}</span>
+                <span class="account-number">{{ account.number }}</span>
+
+                <span class="account-balance">{{ account.balance | money }}</span>
+                <span class="account-available">Available: {{ account.available | money }}</span>
+
+                <div class="account-indicators">
+                    <span class="indicator" ng-class="{'active' : activestep == $index }" ng-repeat="step in steps"><i class="ion-record"></i></span>
+                </div>
+
+                <i class="icon ion-chevron-right"></i>
+            </a>
+        </div>
+
+        <div class="list level2">
+            <a class="item">
+                <div class="tabs-background-bank tabs-color-bank">
+                    <div class="tabs">
+                        <a class="tab-item active" href="#">
+                            Your Accounts
+                        </a>
+                        <a class="tab-item" href="#">
+                            Person or bill
+                        </a>
+                    </div>
+                </div>
+            </a>
+            <a class="item item-icon-left item-icon-right" href="#">
+                <i class="icon ion-chevron-left"></i>
+                <span class="lblfrom">From</span>
+                <span class="account-name">{{ account.name }}</span>
+                <span class="account-number">{{ account.number }}</span>
+
+                <span class="account-balance">{{ account.balance | money }}</span>
+                <span class="account-available">Available: {{ account.available | money }}</span>
+
+                <div class="account-indicators">
+                    <span class="indicator" ng-class="{'active' : activestep == $index }" ng-repeat="step in steps"><i class="ion-record"></i></span>
+                </div>
+
+                <i class="icon ion-chevron-right"></i>
+            </a>
+        </div>
+
+    </ion-content>
+</ion-view>

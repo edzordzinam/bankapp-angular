@@ -1,0 +1,97 @@
+.alerts {
+  .scroll-content {
+    .row {
+      padding: 0 20px;
+
+      .col {
+        padding-left: 0;
+        margin-bottom: 5px;
+      }
+
+      strong {
+        color: $application_main_color;
+        font-family: latomedium;
+        font-size: em(15);
+      }
+
+      &:first-child {
+        margin-top: 20px;
+      }
+      &:nth-child(2) {
+        margin-bottom: 20px;
+      }
+    }
+
+    .list {
+      margin-bottom: 5px;
+
+      .item {
+        label {
+          font-family: Helvetica;
+          font-size: em(15);
+          padding-left: 10px;
+
+          @media all and (max-device-width: 480px) {
+            font-size: em(13);
+          }
+        }
+
+        input {
+          background: white;
+          width: 60px;
+          border: 1px solid $form-background-color;
+          margin-right: 5px;
+          margin-left: 5px;
+          @include border-radius(6px);
+          padding-left: 5px;
+          color: $application_main_color;
+          font-family: Helvetica-Bold;
+          font-size: em(16);
+        }
+      }
+
+      &.weekly {
+        .item {
+          padding: 10px 20px 20px;
+          margin-bottom: 10px;
+          @include background(white);
+          box-shadow: 0px 0px 1px $form-background-color;
+
+          .input-label {
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+            font-size: 17px;
+            font-family: latobold;
+            color: $application_main_color;
+          }
+
+          select {
+            @include box-shadow(inset 2px 2px 2px $form-background-color);
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            text-align: left;
+            @include background(#f6f6f6);
+            border-radius: 6px;
+            padding: 8px 48px 8px 16px;
+            direction: ltr;
+          }
+
+          &.item-select {
+            &:after {
+              position: relative;
+              top: 18px;
+              color: black;
+              border-top: 6px solid;
+              border-right: 6px solid rgba(0, 0, 0, 0);
+              border-left: 6px solid rgba(0, 0, 0, 0);
+              right: 24px;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,304 @@
+//Global variables declaration
+$application_background: #182663;
+// #172258;
+$application_main_color: $application_background;
+
+$header-height: 50px;
+$header-bottom-color: #f9a604;
+$list-header-text-color: #323232;
+$form-background-color: #e8e8e8;
+$tab-inactive-color: $form-background-color;
+
+$menu-fontsize: em(17);
+$menu-profilename-color: #f9a604;
+$menu-profilename-fontsize: em(20);
+
+$header-border-color: $menu-profilename-color;
+$header-yellow: #f8b634;
+
+$app-yellow: $menu-profilename-color;
+
+$button-border-radius: 6px;
+
+@mixin text-ellipsis($height, $lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines * 1px; /* number of lines to show */
+  line-height: $height * 1px; /* fallback */
+  max-height: ($height*$lines) * 1px; /* fallback */
+}
+
+//application background
+.bg-application {
+  background: $application_background;
+  color: white;
+
+  .title {
+    color: white;
+  }
+}
+
+.app-block-button {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  margin: 0 20px;
+  width: 90%;
+  @include border-radius($button-border-radius);
+  border: none;
+  font-size: em(17);
+  color: $application_main_color;
+  font-family: latobold;
+}
+
+.app-button-m {
+  width: 190px;
+}
+
+.app-footer {
+  height: 140px;
+  background-image: url(../img/logo.png) !important;
+  background-position: right -12px center !important;
+  background-size: auto 141px !important;
+  background-repeat: no-repeat !important;
+  z-index: 100;
+
+  .title {
+    color: $app-yellow;
+    text-align: left;
+    padding-left: 8px;
+    font-size: em(18);
+    font-family: latobold;
+    top: -10px;
+  }
+
+  .text {
+    color: white;
+    font-family: Helvetica;
+    font-size: em(15);
+    padding: 25px 80px 0px 15px;
+    line-height: 1.2;
+    @include text-ellipsis(20, 4);
+  }
+
+  button {
+    @extend .app-block-button;
+  }
+
+  @include background($application_main_color);
+}
+
+.has-advert-footer {
+  bottom: 140px;
+}
+
+.bar-bank {
+  border-bottom: 4px solid $application_main_color !important;
+  @include bar-style($application_main_color, $application_main_color, white);
+
+  .title {
+    font-family: latobold;
+
+    .main, .main-middle {
+      display: block;
+      position: relative;
+      top: 8px;
+      line-height: 1;
+      height: 8px;
+    }
+
+    .main-middle {
+      top: 0px;
+    }
+
+    .sub {
+      font-family: Helvetica-Light;
+      font-size: em(10);
+    }
+  }
+
+  .button-icon, .button.back-button {
+    padding-top: 8px;
+    &:before {
+      font-size: 40px !important;
+      color: white;
+    }
+  }
+
+  .back-button {
+    .back-text {
+      display: none;
+    }
+
+    .ion-chevron-left {
+      &:before {
+        top: -3px;
+        position: relative;
+        color: #FFF;
+        font-size: 28px;
+        left: 5px;
+        font-weight: bold;
+      }
+    }
+  }
+
+}
+
+.bar-subheader {
+  border: none;
+}
+
+.item {
+  .collapse {
+    display: none
+  }
+
+  .collapse.in {
+    display: block;
+  }
+
+  .collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.35s ease;
+    transition: height 0.35s ease;
+  }
+}
+
+.scroll-bar-indicator {
+  opacity: 0 !important;
+}
+
+.border-top-yellow {
+  border-top: 3px solid $app-yellow;
+}
+
+.border-bottom-yellow {
+  border-bottom: 3px solid $app-yellow;
+}
+
+.company-header-large {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 450px;
+  background-color: $application_main_color;
+  background-image: url(../img/company-logo.png);
+  background-repeat: no-repeat;
+  background-position: top 70px center;
+  background-size: 240px;
+
+  @media screen and (min-device-width : 769px){
+    background-size : 480px;
+  }
+  @extend .border-bottom-yellow;
+}
+
+.company-header-medium {
+  @extend .company-header-large;
+  height: 200px;
+  position: relative;
+  background-position: center center;
+  top: 0px;
+}
+
+.company-header-small {
+  @extend .company-header-large;
+  height: 100px;
+  position: relative;
+  top: 0px;
+  background-size: 45%;
+  background-position: top 30px center;
+}
+
+.register-button {
+  @include background($app-yellow);
+  color: $application_main_color;
+  border: none;
+  font-family: latobold;
+  height: 42px;
+  min-height: 0;
+  @include border-radius(6px);
+  font-size: em(18);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.padding20 {
+  padding: 0px 20px !important;
+}
+
+.twin-button {
+  a {
+    border-radius: 6px !important;
+    margin: 20px 20px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 20px !important;
+
+    &:first-child {
+      @include background($application_main_color);
+      color: white;
+      margin-right: 5px;
+    }
+
+    &:last-child {
+      @include background($app-yellow);
+      color: $application_main_color;
+      margin-left: 5px;
+    }
+  }
+}
+
+@include tabs-background('tabs-background-bank', white, white);
+@include tabs-color('tabs-color-bank', black);
+
+.tabs-background-bank {
+  .tabs {
+    .tab-item {
+      max-width: 100%;
+      font-family: Helvetica-Bold;
+      background-color: $tab-inactive-color;
+      background-image: linear-gradient(0deg, $tab-inactive-color, $tab-inactive-color 50%, transparent 50%);
+      border-color: $tab-inactive-color;
+
+      &.left {
+        margin-right: 3px;
+      }
+
+      &.right {
+        margin-left: 3px;
+      }
+    }
+    .active {
+      background-color: $application_main_color;
+      background-image: linear-gradient(0deg, $application_main_color, $application_main_color 50%, transparent 50%);
+      border-color: $application_main_color;
+      color: white;
+    }
+  }
+}
+
+.toggle-bank {
+  @include toggle-style($application_main_color, $application_main_color);
+}
+
+.clearfix:after {
+  content: " "; /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.button {
+  height: 40px !important;
+  line-height: 40px !important;
+}

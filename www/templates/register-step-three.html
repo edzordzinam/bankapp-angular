@@ -1,0 +1,17 @@
+<ion-view hide-nav-bar="true" id="registerStep3View" class="registerViewStep">
+    <ion-content has-bouncing="true">
+        <div class="register-head-step"></div>
+        <div class="info">
+            <span class="home">Set a passcode</span>
+            <span>You will be asked to enter your passcode each time you use the app.</span>
+            <span class="home">Keep this code safe and do not store it on your phone.</span>
+
+            <div class="list list-inset passcode">
+                <label class="item item-input">
+                    <input type="tel" name="passcode" ng-keyup="verifyPasscode($event)"  ng-model="creds.passcode"  caret="0" stop="5" required>
+                </label>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

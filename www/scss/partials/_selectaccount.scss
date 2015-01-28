@@ -1,0 +1,31 @@
+.accountsForm {
+  .scroll-content {
+    @extend .border-top-yellow;
+
+    .form-header {
+      margin: 20px 20px;
+      display: block;
+      font-family: Helvetica;
+      font-size : em(15);
+
+      strong {
+        font-size: em(15);
+        font-family: Helvetica-Bold;
+        color : $application_main_color;
+      }
+      p {
+      }
+    }
+  }
+}
+
+#confirmDepositView{
+  .account-balance {
+    margin-bottom: 20px;
+  }
+
+  .account-number {
+    margin-bottom: 0px;
+  }
+
+}

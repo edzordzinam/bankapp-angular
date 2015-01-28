@@ -1,0 +1,44 @@
+<ion-view view-title="Weekly balance" class="alerts" id="weeklyBalanceView">
+    <ion-content has-bouncing="true">
+        <div class="row">
+            <div class="col col-80">
+                <strong>Weekly balance alerts</strong>
+            </div>
+            <div class="col col-20 ">
+                <label class="toggle toggle-bank">
+                    <input type="checkbox" checked="checked">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+
+        <div class="list weekly">
+            <label class="item  item-input item-stacked-label item-select">
+                <span class="input-label">Day</span>
+                <select>
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option selected="selected">Friday</option>
+                </select>
+            </label>
+            <label class="item  item-input item-stacked-label item-select">
+                <span class="input-label">Time of day</span>
+                <select>
+                    <option value="1">Morning 8am-12pm</option>
+
+                </select>
+            </label>
+        </div>
+
+        <div class="button-bar twin-button">
+            <a class="button button-block register-button padding20" ng-href="#/app/notifications">Back</a>
+            <a class="button button-block register-button padding20" ng-href="#/app/notifications">Confirm</a>
+        </div>
+    </ion-content>
+</ion-view>

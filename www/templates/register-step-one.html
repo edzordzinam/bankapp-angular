@@ -1,0 +1,27 @@
+<ion-view hide-nav-bar="true" id="registerStep1View" class="registerViewStep">
+    <ion-content has-bouncing="true">
+        <div class="register-head-step"></div>
+        <div class="info">
+            <span class="home">Enter your details</span>
+            <span class="hidden"></span>
+            <span class="home padding20">We need your mobile number so we can send you an activate text to confirm your details.</span>
+
+            <div class="list list-inset register-form">
+                <label class="item item-input">
+                    Please enter your mobile number
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Mobile number">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Confirm mobile number">
+                </label>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="gotoStep(2)">Continue</button>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

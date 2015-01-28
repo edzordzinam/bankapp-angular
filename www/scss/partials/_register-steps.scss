@@ -1,0 +1,149 @@
+.registerViewStep {
+  .scroll-content {
+    border-top: none;
+    background: white;
+
+    .register-head-home {
+      @extend .company-header-medium;
+    }
+    .register-head-step {
+      @extend .company-header-small;
+    }
+
+    .info {
+      span {
+        display: block;
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+        font-family: Helvetica-Light;
+
+        &.home:first-child {
+          font-family: latobold;
+          font-size: em(23);
+          margin-top: 30px;
+          color: $application_main_color;
+        }
+
+        &.home:nth-child(2) {
+          font-family: latomedium;
+          font-size: em(18);
+          margin-top: 10px;
+          padding: 0 40px;
+          color: #676c8b;
+        }
+
+        &:nth-child(3) {
+          display: block;
+          font-family: Helvetica;
+          font-size: em(15);
+          margin-top: 10px;
+          margin-bottom: 20px;
+          padding: 10px 40px;
+          color: #828282;
+        }
+      }
+    }
+
+    .passcode.list {
+      width: 200px;
+      max-width: 200px;
+      margin: 70px auto auto auto;
+      background: white;
+
+      .item-input {
+        border: none;
+        margin: 0;
+        padding: 0;
+        height: 45px;
+        background-image: url(../img/passcode-bg.png);
+        background-size: contain;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        display : block;
+
+        input {
+          padding: 0px;
+          margin: 0px;
+          width: 200px;
+          flex: none;
+          font-family: latobold;
+          font-size: em(30);
+          letter-spacing: 25px;
+          text-indent: 6px;
+          padding-bottom: 5px;
+          margin-bottom: 5px;
+          height: 40px;
+          box-shadow: none;
+          color : $application_main_color;
+         }
+
+
+        input[type="password"]{
+          color : $app-yellow;
+
+        }
+      }
+    }
+
+    .register-form {
+      @include background($form-background-color);
+      padding: 10px 20px 20px 20px;
+      margin: 0;
+
+      .item {
+        border: none;
+        padding: 5px 0px;
+        margin: 0;
+        @include background($form-background-color);
+
+        &:first-child {
+          font-family: latomedium;
+          color: $application_main_color;
+          font-size: em(18);
+          @media all and (max-device-width: 480px){
+            font-size: em(17);
+          }
+
+          div {
+            width: 25px;
+            height: 25px;
+            display: block;
+            background: $app-yellow;
+            text-align: center;
+            margin-left: 10px;
+            @include border-radius(50%);
+
+            i {
+              font-size: 17px;
+              color: $application_main_color;
+              position: relative;
+
+              &:before {
+              }
+            }
+          }
+
+        }
+      }
+
+      input {
+        border: none;
+        padding: 0 5px;
+        margin: 0;
+        @include background(white);
+        @include border-radius(6px);
+        color: #323232;
+        height: 40px;
+      }
+    }
+
+    .padding {
+      padding: 30px 20px;
+      button {
+        @extend .register-button;
+      }
+    }
+
+  }
+}

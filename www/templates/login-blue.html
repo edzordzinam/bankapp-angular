@@ -1,0 +1,17 @@
+<ion-view hide-nav-bar="true" id="loginViewBlue">
+    <ion-content has-bouncing="true">
+        <div class="register-head">
+            <div class="info">
+                <span>Welcome back</span>
+                <span>Please enter your 5 digit password below</span>
+                <span><a href="#/app/login">Forgotten passcode?</a></span>
+
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="tel" name="passcode" ng-keyup="verifyPasscode($event)"  ng-model="creds.passcode"  caret="0" stop="5" required>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,80 @@
+<ion-view view-title="Payments & Transfers" id="paymentsView">
+    <ion-content has-bouncing="true">
+        <div class="list level0">
+            <a class="item item-icon-left item-icon-right" href="#">
+                <i class="icon ion-chevron-left"></i>
+                <span class="lblfrom">From</span>
+                <span class="account-name">{{ accountFrom.name }}</span>
+                <span class="account-number">{{ accountFrom.number }}</span>
+
+                <span class="account-balance">{{ accountFrom.balance | money }}</span>
+                <span class="account-available">Available: {{ accountFrom.available | money }}</span>
+
+                <div class="account-indicators">
+                    <span class="indicator" ng-class="{'active' : activeFrom == $index }" ng-repeat="step in steps"><i class="ion-record"></i></span>
+                </div>
+
+                <i class="icon ion-chevron-right"></i>
+            </a>
+        </div>
+        <div class="list level1">
+
+            <div class="button-bar">
+                <a class="button" ng-click="setReceiverType(0);" ng-class="{'active' : payment.receivertype == 0 }">Your accounts</a>
+                <a class="button" ng-click="setReceiverType(1);" ng-class="{'active' : payment.receivertype == 1 }">Person or bill</a>
+            </div>
+
+            <a class="item item-icon-left item-icon-right animate-show" href="#" ng-show="getReceiverType() == 0">
+                <i class="icon ion-chevron-left"></i>
+                <span class="lblFrom lblTo">To</span>
+                <span class="account-name">{{ accountTo.name }}</span>
+                <span class="account-number">{{ accountTo.number }}</span>
+
+                <span class="account-balance">{{ accountTo.balance | money }}</span>
+                <span class="account-available">Available: {{ accountTo.available | money }}</span>
+
+                <div class="account-indicators">
+                    <span class="indicator" ng-class="{'active' : activeTo == $index }" ng-repeat="step in steps"><i class="ion-record"></i></span>
+                </div>
+
+                <i class="icon ion-chevron-right"></i>
+            </a>
+
+            <a class="item item-person animate-show" href="#" ng-show="getReceiverType() == 1">
+                <div class="list">
+                    <label class="item-recipient"> To <button ng-click="gotoRecipient();">Add <i class="ion-plus"></i> </button> </label>
+                    <label class="item  item-input item-select">
+                        <select>
+                            <option value="1">Please select</option>
+                        </select>
+                    </label>
+                </div>
+            </a>
+
+        </div>
+        <div class="list level3">
+            <label class="item item-input">
+                <span class="input-label">Amount:</span>
+                <input type="tel" ng-model="payment.amount">
+            </label>
+        </div>
+
+        <div class="list level4">
+            <span class="date">
+                When would you like your payment or transfer to go out?
+            </span>
+        </div>
+
+        <div class="list level5">
+            <div>
+                <input type="radio" name="group">Now
+            </div>
+            <div>
+                <input type="radio" name="group">Date <i class="fa fa-calendar"></i>
+            </div>
+        </div>
+        <div class="padding20 ">
+            <a class="button button-block register-button" href="#/app/confirmpayment">Continue</a>
+        </div>
+    </ion-content>
+</ion-view>

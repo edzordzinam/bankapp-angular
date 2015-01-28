@@ -1,0 +1,39 @@
+<ion-view view-title="Limit alert" class="alerts">
+    <ion-content has-bouncing="true">
+        <div class="row">
+            <div class="col col-33">
+                <strong>Limit alert</strong>
+            </div>
+            <div class="col col-33 col-offset-33">
+                <label class="toggle toggle-bank">
+                    <input type="checkbox" checked="checked">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item item-input-inset">
+                <label>
+                    When the balance drops <strong> below:</strong>
+                </label>
+                <input type="text" ng-model="alerts.low">
+            </div>
+        </div>
+        <div class="list">
+            <div class="item item-input-inset">
+                <label>
+                    When the balance goes <strong> above:</strong>
+                </label>
+                <input type="text" ng-model="alerts.high">
+            </div>
+        </div>
+
+        <div class="button-bar twin-button">
+            <a class="button button-block register-button padding20" ng-href="#/app/notifications">Back</a>
+            <a class="button button-block register-button padding20" ng-href="#/app/notifications">Confirm</a>
+        </div>
+    </ion-content>
+</ion-view>

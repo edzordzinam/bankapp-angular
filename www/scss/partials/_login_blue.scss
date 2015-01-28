@@ -1,0 +1,89 @@
+#loginViewBlue {
+  .scroll-content {
+    border-top: none;
+    background: white;
+
+    .register-head {
+      @extend .company-header-large;
+
+      .info {
+        display: block;
+        position: relative;
+        top: 200px;
+
+        span {
+          display: block;
+          text-align: center;
+          width: 100%;
+          margin-top: 10px;
+          font-family: Helvetica-Light;
+          color: white;
+
+          &:first-child {
+            font-family: latobold;
+            font-size: em(23);
+            margin-top: 30px;
+          }
+
+          &:nth-child(2) {
+            font-family: Helvetica;
+            font-size: em(15);
+            margin-top: 15px;
+          }
+
+          &:nth-child(3) {
+            font-family: Helvetica;
+            font-size: em(13);
+            text-decoration: underline;
+          }
+
+          a {
+            color: white;
+          }
+        }
+      }
+
+      .list {
+        width: 200px;
+        max-width: 200px;
+        margin: 20px auto auto auto;
+        @include background($application_main_color);
+
+        .item-input {
+          border: none;
+          margin: 0;
+          padding: 0;
+          height: 45px;
+          @include background($application_main_color);
+          background-image: url(../img/passcode-bg-white.png);
+          background-size: contain;
+          background-position: bottom;
+          background-repeat: no-repeat;
+          display : block;
+
+          input {
+            padding: 0px;
+            margin: 0px;
+            width: 200px;
+            flex: none;
+            font-family: latobold;
+            font-size: em(30);
+            letter-spacing: 25px;
+            text-indent: 6px;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            height: 40px;
+            box-shadow: none;
+            @include background($application_main_color);
+            color : white;
+          }
+
+          input[type="password"] {
+            color: $app-yellow;
+
+          }
+        }
+      }
+    }
+  }
+}

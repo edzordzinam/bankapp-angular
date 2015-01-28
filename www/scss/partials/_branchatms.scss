@@ -1,0 +1,103 @@
+#branchATMView {
+  .scroll-content {
+    border-top: none;
+    @include background($form-background-color);
+
+    .list {
+      box-shadow: none;
+      border: none;
+      margin: 0;
+      height: auto;
+      @include background($app-yellow);
+
+      .item {
+        padding: 5px;
+        margin: 0;
+        @include background($app-yellow);
+        box-shadow: none;
+        border: none;
+        height: 45px;
+        border-radius: 0;
+
+        .item-input-wrapper {
+          background: none;
+          padding: 0;
+
+          input {
+            height: 35px;
+            border-radius: 0;
+            background: white;
+            margin-right: 5px;
+          }
+        }
+
+        button {
+          margin-left: 0;
+          &:before {
+            font-size: em(30);
+            top: 5px;
+            position: relative;
+            color: white;
+          }
+
+          &.fa-list-ul {
+            &:before {
+              top: 3px;
+              position: relative;
+            }
+          }
+        }
+
+      }
+
+      .button-bar {
+        border: none;
+        position: relative;
+        top: 2px;
+        .button {
+          border-color: $form-background-color;
+          border-radius: 0;
+          &:first-child {
+            border-left: none;
+          }
+          &:last-child {
+            border-right: none;
+          }
+
+          &.active {
+            @include background($application_main_color);
+            color: white;
+            font-family: latobold;
+            border: none;
+          }
+        }
+      }
+    }
+
+    div.img{
+      position: absolute;
+      top: 90px;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 700px;
+      background: url("../img/branchatms.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      border: none;
+
+      &.atm {
+        background: url("../img/atmonly.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+
+      &.branch {
+        background: url("../img/branch-details.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+    }
+
+  }
+}

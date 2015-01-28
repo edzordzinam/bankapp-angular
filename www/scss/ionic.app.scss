@@ -1,0 +1,75 @@
+@import "compass/css3/images";
+
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "../lib/ionic/scss/ionic";
+
+//required imports
+@import "font-awesome/scss/_font-awesome.scss";
+
+//partials importation
+@import "partials/_functions";
+@import "partials/_fonts";
+@import "partials/_variables";
+@import "partials/_ionic_override";
+@import "partials/_menu";
+
+//views
+@import "partials/_account";
+@import "partials/_accountdetails";
+@import "partials/_login";
+@import "partials/_login_blue";
+@import "partials/_register-steps";
+@import "partials/_payments";
+@import "partials/_checkdeposits";
+@import "partials/_selectaccount";
+@import "partials/_alerts";
+@import "partials/_notifications";
+@import "partials/_confirmation";
+@import "partials/_animate";
+@import "partials/branchatms";
+
+.scroll-content {
+  @extend .border-top-yellow;
+  @include background(#f6f6f6);
+
+  .list {
+    a {
+      .icon {
+        font-size: 28px !important;
+        color: $app-yellow;
+
+        &.balanced {
+          @extend .balanced;
+        }
+
+        &.assertive{
+          @extend .assertive;
+        }
+      }
+    }
+  }
+
+}
+
+
+

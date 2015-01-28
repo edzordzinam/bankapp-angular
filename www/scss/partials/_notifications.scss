@@ -1,0 +1,82 @@
+#notificationsView {
+  .scroll-content {
+    .account-name {
+      margin-top: 10px;
+    }
+
+    .header-info {
+      padding: 15px 20px;
+      font-size: 15px;
+      font-family: Helvetica;
+
+      span {
+        border-bottom: 2px solid #6e738f;
+        a {
+          background: transparent;
+          text-decoration: none;
+          color: black;
+        }
+      }
+
+    }
+
+    .col {
+      padding-left: 0;
+    }
+
+    .alert-settings {
+      .item {
+        height: 80px;
+        padding: 5px 20px;
+        margin-bottom: 6px;
+        border-top: 1px solid $form-background-color;
+        border-bottom: 1px solid $form-background-color;
+
+        .icon {
+          &:before {
+            font-size: em(15);
+          }
+        }
+
+        strong {
+          color: $application_main_color;
+        }
+
+        .title {
+          font-size: em(17);
+          font-family: latobold;
+          margin-top: 0;
+        }
+
+        .margintop15 {
+          margin-top: 15px;
+        }
+
+        .margintop5{
+          margin-top: 5px;
+        }
+
+        .description {
+          font-family: Helvetica;
+          font-size: em(14);
+          margin-bottom: 0;
+
+          @media all and (max-device-width: 320px) {
+            font-size: em(13);
+          }
+
+          p {
+            word-wrap: break-word;
+            overflow: auto;
+            text-overflow: clip;
+            white-space: normal;
+            padding-right: 20px;
+            font-family: Helvetica;
+            color : black;
+            font-size: em(15);
+          }
+        }
+      }
+    }
+  }
+}

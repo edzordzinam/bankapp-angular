@@ -1,0 +1,19 @@
+#confirmPaymentView {
+  .scroll-content {
+    .level0 {
+      &.list {
+        .item {
+          height: auto;
+
+          .lblfrom {
+            font-weight: normal;
+          }
+
+          .payment-amount {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}

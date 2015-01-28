@@ -1,0 +1,15 @@
+<ion-view id="checkDepositView" view-title="Mobile check deposits" class="codeForm">
+    <ion-content has-bouncing="true">
+        <div class="info">
+            <span class="hidden">Welcome back</span>
+            <span class="span-only">To deposit your check please type in the 10 digit code you received via SMS below:</span>
+
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <input type="tel" name="vericode" ng-keyup="verifyPasscode($event)"  ng-model="creds.vericode" caret="0" stop="10" required>
+                </label>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,95 @@
+//left side menu styling
+.menu {
+
+  //menu header
+  .bar-header {
+    border : none;
+    h1 {
+      padding-left: 10px;
+      color: $menu-profilename-color;
+      font-family: latobold;
+      text-align: left;
+      font-size: $menu-profilename-fontsize;
+    }
+  }
+
+  //main scroll-content container
+  .scroll-content {
+    @extend .bg-application;
+    @extend .has-advert-footer;
+
+    &.has-header {
+      top: $header-height;
+    }
+
+    .list {
+      .item {
+        @extend .bg-application;
+        border: none;
+        font-size: $menu-fontsize;
+        font-family: latomedium;
+
+        .item-content {
+          @extend .bg-application;
+          padding: 12px 49px 12px 20px;
+
+          .fa {
+            width: 25px;
+            text-align: center;
+          }
+
+          .fa-mobile {
+            font-size: em(25);
+          }
+        }
+
+        &.get-in-touch {
+          padding-left: 25px;
+          padding-top: 0px;
+          margin-top: 1.4em;
+          @extend .bg-application;
+
+          span {
+            color: $menu-profilename-color;
+            font-size: $menu-profilename-fontsize;
+            font-family: latobold;
+
+            display: block;
+            margin-top: 0.5em;
+          }
+
+          .item {
+            padding: 0;
+            font-family: latolight;
+            font-size: em(14);
+            padding-top: 5px;
+            padding-right: 55px;
+            @include background(transparent);
+          }
+
+          button {
+            @extend .app-button-m;
+            color : $application_main_color;
+          }
+
+          @include background(url('../img/get-in-touch.png'));
+          background-repeat: no-repeat;
+          background-position: right;
+          background-size: 92px 162px;
+          border-top: 1px solid rgba(255, 255, 255, 0.4);
+        }
+      }
+    }
+
+  }
+
+  .bar-footer {
+    @extend .app-footer;
+    border-top: 1px solid rgba(255,255,255, 0.2);
+
+    button {
+      @extend .app-button-m;
+      color : $application_main_color;
+    }
+  }
+}

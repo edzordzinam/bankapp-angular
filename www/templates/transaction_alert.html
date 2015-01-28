@@ -1,0 +1,63 @@
+<ion-view view-title="Transaction alert" class="alerts">
+    <ion-content>
+
+        <div class="row">
+            <div class="col col-80">
+                <strong>Alert me after every transaction</strong>
+            </div>
+            <div class="col col-20 ">
+                <label class="toggle toggle-bank">
+                    <input type="checkbox" >
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-80">
+                <strong>Transaction alerts</strong>
+            </div>
+            <div class="col col-20">
+                <label class="toggle toggle-bank">
+                    <input type="checkbox" checked="checked">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="list">
+            <div class="item item-input-inset">
+                <label>
+                    When a transaction above:
+                </label>
+                <input type="text"  ng-model="alerts.transin" >
+                <label>
+                    goes <strong> in</strong>
+                </label>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item item-input-inset">
+                <label>
+                    When a transaction above:
+                </label>
+                <input type="text"  ng-model="alerts.transout">
+                <label>
+                    goes <strong> out</strong>
+                </label>
+            </div>
+        </div>
+
+
+        <div class="button-bar twin-button">
+            <a class="button button-block register-button padding20" ng-href="#/app/notifications">Back</a>
+            <a class="button button-block register-button padding20" ng-href="#/app/notifications">Confirm</a>
+        </div>
+
+    </ion-content>
+</ion-view>
