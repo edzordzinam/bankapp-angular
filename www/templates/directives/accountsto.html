@@ -1,0 +1,18 @@
+<a class="item item-icon-left item-icon-right" href="#" ng-show="tab() == 0" on-swipe-left="switchAccount('left')" on-swipe-right="switchAccount('right')">
+    <i class="icon ion-chevron-left" ng-click="switchAccount('left')"></i>
+
+    <div class="account-pane" ng-repeat="account in accounts" ng-show="active['to'] == $index" ng-class="{'account-show' : active['to'] == $index}">
+        <span class="lblfrom lblTo">To</span>
+        <span class="account-name">{{ account.name }}</span>
+        <span class="account-number">{{ account.number }}</span>
+
+        <span class="account-balance">{{ account.balance | money }}</span>
+        <span class="account-available">Available: {{ account.available | money }}</span>
+    </div>
+
+    <div class="account-indicators">
+        <span class="indicator" ng-class="{'active' : active['to'] == $index }" ng-repeat="step in steps"><i class="ion-record"></i></span>
+    </div>
+
+    <i class="icon ion-chevron-right" ng-click="switchAccount('right')"></i>
+</a>

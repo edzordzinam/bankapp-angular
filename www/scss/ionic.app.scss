@@ -46,7 +46,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "partials/_notifications";
 @import "partials/_confirmation";
 @import "partials/_animate";
-@import "partials/branchatms";
+@import "partials/_branchatms";
+@import "partials/_documents";
+@import "partials/_products";
+@import "partials/_settings";
 
 .scroll-content {
   @extend .border-top-yellow;
@@ -66,6 +69,21 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
           @extend .assertive;
         }
       }
+    }
+  }
+
+}
+
+body.menu-open{
+  @include transition(all 0.5s ease-in-out);
+
+  .menu-content{
+    .scroll-content{
+      opacity: 0.5;
+    }
+
+    .bar-footer{
+      opacity: 0.3;
     }
   }
 

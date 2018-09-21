@@ -1,4 +1,4 @@
-angular.module('bankapp.controllers', ['bankapp.factories'])
+angular.module('bankapp.controllers', ['bankapp.factories', 'bankapp.services'])
 
     .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
         // Form data for the login modal
@@ -33,22 +33,15 @@ angular.module('bankapp.controllers', ['bankapp.factories'])
         };
     })
 
-    .controller('AccountsController', function ($scope, viewUtils, $stateParams) {
+    .controller('AccountsController', function ($scope, $rootScope, viewUtils, $stateParams, accountService) {
         $scope.showmessage = false;
+        $scope.direction = '';
+        var accounts = accountService.getAccounts();
 
-        $scope.accounts = [
-            {name: 'Current Account', tnx: 12000, number: '123456789 | 11-22-33', balance: 13500},
-            {name: 'Credit Card', tnx: 852.50, number: '12345689***1234', balance: 1852.50},
-            {name: 'Personal Loan', tnx: 12000, number: '123456789 | 11-22-33', balance: 1500}
-        ]
-
-        $rootScope.accounts = $scope.accounts;
+        $scope.accounts = accounts['accounts'];
 
         if ($stateParams.confirmed == "1") {
             $scope.showmessage = true;
-            $scope.message = '<h4>Your payment was successful <i class="ion-close"  ng-click="hideConfirmation()"></i></h4>' +
-                             '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod indum.</p>' +
-                             '<a class="button" href="#">View details</a>';
         }
 
         $scope.hideConfirmation = function () {
@@ -58,27 +51,17 @@ angular.module('bankapp.controllers', ['bankapp.factories'])
         $scope.showConfirmation = function () {
             return $scope.showmessage;
         }
-
-
     })
 
-    .controller('AccountDetails', function ($scope, $rootScope, $ionicNavBarDelegate, $stateParams, viewUtils) {
-        $scope.pageTitle = viewUtils.setTitle('Current Account', '123456789 | 11-22-33');
+    .controller('AccountDetails', function ($filter, $scope, $rootScope, $ionicNavBarDelegate, $stateParams, viewUtils, accountService) {
+        //get accounts and set page title
+        var accounts = accountService.getAccounts();
+        $scope.account = accounts['accounts'][$stateParams.index];
+        $scope.pageTitle = viewUtils.setTitle($scope.account.name, $scope.account.number);
 
-        $scope.account = {name: 'Current Account', month: 'December, 2014', balance: 12000, available: 13500, overdraft: 1500};
+        $scope.month = $filter('date')((new Date).getTime(), 'MMMM, yyyy');
 
-        $scope.transactions = [
-            {name: 'Sky Digital', date: '22/12/14', type: 'debit', amount: 20, account: {balance: 12000}},
-            {name: 'Current Account', date: '22/12/14', type: 'credit', amount: 20, account: {balance: 11980}},
-            {name: 'Amazon', date: '20/12/14', type: 'debit', amount: 20, account: {balance: 11960}},
-            {name: 'Current Account', date: '22/12/14', type: 'credit', amount: 20, account: {balance: 11940}},
-            {name: 'Tesco', date: '22/12/14', type: 'debit', amount: 20, account: {balance: 11920}},
-            {name: 'Current Account', date: '22/12/14', type: 'credit', amount: 20, account: {balance: 11880}},
-            {name: 'Current Account', date: '22/12/14', type: 'credit', amount: 20, account: {balance: 12860}},
-            {name: 'Current Account', date: '22/12/14', type: 'credit', amount: 20, account: {balance: 12840}},
-            {name: 'Current Account', date: '22/12/14', type: 'credit', amount: 20, account: {balance: 12820}},
-            {name: 'Sky Digital', date: '22/12/14', type: 'debit', amount: 20, account: {balance: 12800}}
-        ]
+        $scope.transactions = accountService.getAccountTransactions($stateParams.index, 12);
 
         $scope.show_section = null;
         $scope.expandedclass = '';
@@ -105,8 +88,6 @@ angular.module('bankapp.controllers', ['bankapp.factories'])
         $scope.shuffle = function () {
             $scope.transactions = viewUtils.shuffleArray($scope.transactions);
         }
-
-
     })
 
     .controller('LoginController', function ($scope, $state, $stateParams) {
@@ -115,7 +96,7 @@ angular.module('bankapp.controllers', ['bankapp.factories'])
         $scope.verifyPasscode = function ($event) {
             if (parseInt($scope.creds.passcode) === 12345) {
                 $scope.creds.passcode = '';
-                $state.go('app.myaccount', {'confirmed': 0});
+                $state.go('app.myaccounts', {'confirmed': 0});
             }
         }
     })
@@ -137,13 +118,11 @@ angular.module('bankapp.controllers', ['bankapp.factories'])
         }
     })
 
-    .controller('PaymentsController', function ($scope, $state) {
-        $scope.accounts = [
-            {name: 'Current Account', month: 'December, 2014', number: '123456789 | 11-22-33', balance: 12000, available: 1500, overdraft: 1500},
-            {name: 'Credit card', month: 'December, 2014', number: '123456789***1234 | Mastercard', balance: 1000, available: 1500, overdraft: 1500},
-            {name: 'Current Account', month: 'December, 2014', number: '123456789 | 11-22-33', balance: 12000, available: 1500, overdraft: 1500}
-        ]
-        $scope.steps = [1, 2, 3];
+    .controller('PaymentsController', function ($scope, $rootScope, $state, accountService) {
+        var accounts = accountService.getAccounts();
+        $scope.accounts = accounts['accounts'];
+        $scope.metadata = accounts['metadata'];
+
         $scope.accountFrom = $scope.accounts[0];
         $scope.accountTo = $scope.accounts[1];
         $scope.activeTo = 0;
@@ -179,14 +158,13 @@ angular.module('bankapp.controllers', ['bankapp.factories'])
         }
     })
 
-    .controller('AlertController', function ($scope) {
+    .controller('AlertController', function ($scope, accountService) {
+        var accounts = accountService.getAccounts();
+        $scope.accounts = accounts['accounts'];
+        $scope.metadata = accounts['metadata'];
 
         $scope.alerts = {transin: "£400", transout: "£1500", low: "£200", high: "£2500"};
-        $scope.accounts = [
-            {name: 'Current Account', month: 'December, 2014', number: '123456789 | 11-22-33', balance: 12000, available: 1500, overdraft: 1500},
-            {name: 'Credit card', month: 'December, 2014', number: '123456789***1234 | Mastercard', balance: 1000, available: 1500, overdraft: 1500},
-            {name: 'Current Account', month: 'December, 2014', number: '123456789 | 11-22-33', balance: 12000, available: 1500, overdraft: 1500}
-        ]
+
         $scope.steps = [1, 2, 3];
         $scope.accountFrom = $scope.accounts[0];
         $scope.accountTo = $scope.accounts[1];
@@ -196,7 +174,24 @@ angular.module('bankapp.controllers', ['bankapp.factories'])
     })
 
     .controller('BranchController', function ($scope, $state) {
-
+        $scope.gotoNBD = function(){
+            $state.go('app.nbd')
+        }
     })
 
+    .controller('DocumentsController', function ($scope, accountService) {
+        var accounts = accountService.getAccounts();
+        $scope.accounts = accounts['accounts'];
+        $scope.metadata = accounts['metadata'];
+        $scope.month = (new Date()).getTime();
 
+        $scope.documents = accountService.getAccountDocuments();
+    })
+
+    .controller('ProductsController', function ($scope, accountService) {
+        $scope.products = accountService.getProducts();
+    })
+
+    .controller('SettingsController', function ($scope) {
+
+    })

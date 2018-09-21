@@ -1,6 +1,6 @@
 #paymentsView {
   .scroll-content {
-    border-top: none;
+
   }
 }
 
@@ -51,6 +51,11 @@
           text-align: center;
           padding: 10px;
           font-size: 14px;
+          position : absolute;
+          bottom : 20px;
+          left : 0px;
+          right : 0px;
+
 
           span {
             display: inline-block;
@@ -78,7 +83,7 @@
       a {
         .icon {
           &:before {
-            font-size: 20px;
+            font-size: 25px;
           }
         }
       }
@@ -118,6 +123,8 @@
       }
 
       &.level1 {
+        min-height: 210px;
+        @extend .bg-application;
         .item {
           @extend .bg-application;
           border: none;

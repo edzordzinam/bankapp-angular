@@ -97,5 +97,88 @@ angular.module('bankapp.directives', [])
                 });
             }
         };
-    });
+    })
 
+    .directive('ndbAccounts', function () {
+        return {
+            templateUrl: function (elem, attr) {
+                if (attr.info == "yes"){
+                    return 'templates/directives/accounts.html';
+                }
+                if (attr.dir == "from") {
+                    return 'templates/directives/accountsfrom.html';
+                } else {
+                    return 'templates/directives/accountsto.html';
+                }
+            },
+            restrict: 'E',
+            scope: {
+                //internal name : attribute that matches external
+                accounts: '=',
+                meta: '=',
+                tab: '&'
+            },
+            link: function (scope, element, attrs) {
+                scope.active = {from: 0, to: 0};
+                scope.account = scope.accounts[scope.meta.activeAccount];
+                scope.steps = [];
+
+                angular.forEach(scope.accounts, function (value, key) {
+                    scope.steps.push(key);
+                });
+
+                scope.isActive = 0;
+
+                scope.switchAccount = function (direction) {
+                    if (direction == 'right') {
+                        if (attrs.dir == "from") {
+                            if (scope.active['from'] == scope.meta.noOfAccounts - 1) {
+                                scope.active['from'] = 0;
+                            } else {
+                                scope.active['from']++
+                            }
+                        }
+                        else {
+                            if (scope.active['to'] == scope.meta.noOfAccounts - 1) {
+                                scope.active['to'] = 0;
+                            } else {
+                                scope.active['to']++
+                            }
+                        }
+                    }
+                    else {
+                        if (attrs.dir == "from") {
+                            if (scope.active['from'] == 0) {
+                                scope.active['from'] = scope.meta.noOfAccounts - 1;
+                            }
+                            else {
+                                scope.active['from']--;
+                            }
+                        }
+                        else {
+                            if (scope.active['to'] == 0) {
+                                scope.active['to'] = scope.meta.noOfAccounts - 1;
+                            }
+                            else {
+                                scope.active['to']--;
+                            }
+                        }
+                    }
+                }
+
+                element.on('$destroy', function () {
+
+                })
+            }
+        }
+    })
+
+    .directive('ndbMessage', function () {
+        return {
+            restrict: 'E',
+            scope: {},
+            link: function (scope, element, attrs) {
+
+            }
+        }
+    })

@@ -1,20 +1,24 @@
-<ion-view view-title="My Accounts" id="myAccountsView" hide-back-button="true" cache-view="false">
+<ion-view view-title="My Accounts" id="myAccountsView" hide-back-button="true" cache-view="true">
     <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
     </ion-nav-buttons>
     <ion-content has-bouncing="true">
-        <div class="confirmation-msg animate-show" ng-bind="message">
-
+        <div class="confirmation-msg animate-show" ng-show="showConfirmation()">
+            <h4>Your payment was successful <i class="ion-close"  ng-click="hideConfirmation()"></i></h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod indum.</p>
+            <a class="button" href="#">View details</a>
         </div>
 
+
+
         <div class="list">
-            <a class="item item-icon-right" ng-repeat="account in accounts" href="#/app/accountdetails">
+            <a class="item item-icon-right" ng-repeat="account in accounts" ng-href="#/app/accountdetails/{{$index}}">
                 <div class="line">
-                    <span class="account-name">{{ account.name }}</span><span class="tnx-amount">{{ account.tnx | money}}</span>
+                    <span class="account-name">{{ account.name }}</span><span class="tnx-amount">{{ account.balance | money}}</span>
                 </div>
                 <div class="line">
-                    <span class="account-details">{{ account.number }}</span><span class="account-balance">Available {{ account.balance | money}}</span>
+                    <span class="account-details">{{ account.number }}</span><span class="account-balance">Available {{ account.available | money}}</span>
                 </div>
                 <i class="icon ion-chevron-right"></i>
             </a>

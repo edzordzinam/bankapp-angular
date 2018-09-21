@@ -1,0 +1,25 @@
+.account-pane {
+  @include transition(all 0.5s ease-in-out);
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 170px;
+  opacity: 0;
+
+  &.account-show {
+    opacity: 1;
+  }
+}
+
+.slide {
+  @include transition(all 0.5s ease-in-out);
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 170px;
+  opacity: 0;
+
+  &.in {
+    opacity: 1;
+  }
+}

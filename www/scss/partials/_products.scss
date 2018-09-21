@@ -1,0 +1,36 @@
+#productsView {
+  .scroll-content {
+    top: 61px;
+    @extend .border-top-yellow;
+    @extend .has-advert-footer;
+
+    .list {
+      .item {
+        height: 84px;
+        margin-top: 8px;
+        margin-bottom: 5px;
+        padding-right: 42px;
+        padding-top: 13px;
+
+        span {
+          display: block;
+          &.product-name {
+            color: $application_main_color;
+            font-size: em(18);
+            font-family: latobold;
+          }
+        }
+        .product-summary {
+          white-space: normal;
+          font-size: em(16);
+          color: black;
+          font-family: Helvetica;
+        }
+      }
+    }
+  }
+
+  .bar-footer {
+    @extend .app-footer;
+  }
+}

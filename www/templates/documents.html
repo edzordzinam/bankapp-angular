@@ -1,5 +1,22 @@
-<ion-view view-title="Documents" id="docsView">
+<ion-view view-title="Documents" class="accountsForm" id="docsView">
     <ion-content>
-        <div class="img docs"></div>
+        <div class="list level0">
+            <ndb-accounts dir="from" info="yes" accounts="accounts" meta="metadata" tab="getReceiverType()" ></ndb-accounts>
+        </div>
+        <div class="list month-navigator">
+            <a class="button button-clear  icon-left ion-ios7-arrow-back pull-left" ng-click="shuffle()">Nov</a>
+
+            <div class="month">December 2014</div>
+            <a class="button button-clear icon-right ion-ios7-arrow-forward pull-right" ng-click="shuffle()">Jan</a>
+        </div>
+        <div class="list ">
+            <a class="item item-doc item-icon-left item-icon-right" ng-repeat="doc in documents">
+                <i  class="icon icon-band"><span class="day-alpha">{{doc.date | dateCustom : 'EEE' }}</span><span class="day">{{doc.date | dateCustom : 'd' }}</span></i>
+                <span class="title" ><i class="ion-document-text"></i>{{doc.title}}</span>
+                <span class="summary">{{doc.summary}}</span>
+                <i  class="icon ion-chevron-right"></i>
+            </a>
+        </div>
+        <!--<div class="img docs"></div>-->
     </ion-content>
 </ion-view>

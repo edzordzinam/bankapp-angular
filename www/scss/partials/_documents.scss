@@ -1,0 +1,86 @@
+#docsView {
+  .list {
+    .item {
+      &.item-doc {
+        height: 70px;
+        padding: 10px 0 0 60px;
+        border: 1px solid $form-background-color;
+      }
+
+      .icon-band {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        @include background($app-yellow);
+        width: 50px;
+        margin-left: -11px;
+        padding-left: 0;
+        color: $application_main_color;
+        text-align: center;
+        padding: 13px 0;
+
+        span {
+          font-size: em(9);
+          font-family: latobold;
+          display: block;
+          &.day {
+
+          }
+
+          &.day-alpha {
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .title {
+        display: block;
+        color: $application_main_color;
+        font-size: em(18);
+        font-family: latobold;
+        i {
+          font-size: 24px;
+          margin-right: 5px;
+        }
+      }
+
+      .summary {
+        display: block;
+        @media all and (max-width: 480px){
+          font-size: 15px;
+        }
+      }
+    }
+
+    &.month-navigator {
+      height: 50px;
+
+      .button {
+        min-height: 48px;
+        line-height: 47px !important;
+        color : #000000;
+
+        &:before {
+          margin-top: 3px;
+        }
+        &:after {
+          /*top : 0;
+          bottom : 0;*/
+        }
+      }
+
+      .month {
+        position: absolute;
+        left: 60px;
+        right: 60px;
+        text-align: center;
+        top: 14px;
+        font-family: latobold;
+        font-size: em(18);
+        color : $application_main_color;
+      }
+    }
+  }
+
+}

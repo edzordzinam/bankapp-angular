@@ -93,6 +93,12 @@
       }
 
       &.branch {
+        background: url("../img/branches.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+      }
+
+      &.nbd {
         background: url("../img/branch-details.png");
         background-size: 100%;
         background-repeat: no-repeat;

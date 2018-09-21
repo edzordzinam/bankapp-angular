@@ -19,6 +19,10 @@ angular.module('bankapp', ['ionic', 'bankapp.controllers', 'bankapp.directives',
                 StatusBar.styleDefault();
             }
 
+            /*window.setTimeout(function () {
+                navigator.splashscreen.hide();
+            }, 2000);*/
+
         });
     })
 
@@ -90,8 +94,8 @@ angular.module('bankapp', ['ionic', 'bankapp.controllers', 'bankapp.directives',
                 }
             })
 
-            .state('app.myaccount', {
-                url: "/myaccount/:confirmed",
+            .state('app.myaccounts', {
+                url: "/myaccounts/:confirmed",
                 views: {
                     'menuContent': {
                         controller: "AccountsController",
@@ -101,7 +105,7 @@ angular.module('bankapp', ['ionic', 'bankapp.controllers', 'bankapp.directives',
             })
 
             .state('app.accountdetails', {
-                url: "/accountdetails",
+                url: "/accountdetails/:index",
                 views: {
                     'menuContent': {
                         controller: "AccountDetails",
@@ -236,6 +240,15 @@ angular.module('bankapp', ['ionic', 'bankapp.controllers', 'bankapp.directives',
                     }
                 }
             })
+            .state('app.nbd', {
+                url : '/nbd',
+                views : {
+                    'menuContent' : {
+                        controller : 'BranchController',
+                        templateUrl : 'templates/branch_nbd.html'
+                    }
+                }
+            })
             .state('app.faq', {
                 url: '/faq',
                 views: {
@@ -250,7 +263,7 @@ angular.module('bankapp', ['ionic', 'bankapp.controllers', 'bankapp.directives',
                 url: '/docs',
                 views: {
                     'menuContent': {
-                        controller: 'BranchController',
+                        controller: 'DocumentsController',
                         templateUrl: 'templates/documents.html'
                     }
                 }
@@ -259,11 +272,30 @@ angular.module('bankapp', ['ionic', 'bankapp.controllers', 'bankapp.directives',
                 url: '/products',
                 views: {
                     'menuContent': {
-                        controller: 'BranchController',
+                        controller: 'ProductsController',
                         templateUrl: 'templates/products.html'
                     }
                 }
             })
+            .state('app.settings', {
+                url: '/settings',
+                views: {
+                    'menuContent': {
+                        controller: 'SettingsController',
+                        templateUrl: 'templates/settings.html'
+                    }
+                }
+            })
+            .state('app.personaldetails', {
+                url : '/personaldetails',
+                views : {
+                    'menuContent' : {
+                        controller : 'SettingsController',
+                        templateUrl : 'templates/personal_details.html'
+                    }
+                }
+            })
+
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/register');
     });

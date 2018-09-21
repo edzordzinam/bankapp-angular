@@ -26,7 +26,7 @@ $button-border-radius: 6px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $lines * 1px; /* number of lines to show */
-  line-height: $height * 1px; /* fallback */
+  line-height: ($height - 2) * 1px; /* fallback */
   max-height: ($height*$lines) * 1px; /* fallback */
 }
 
@@ -193,8 +193,8 @@ $button-border-radius: 6px;
   background-position: top 70px center;
   background-size: 240px;
 
-  @media screen and (min-device-width : 769px){
-    background-size : 480px;
+  @media screen and (min-device-width: 769px) {
+    background-size: 480px;
   }
   @extend .border-bottom-yellow;
 }
@@ -301,4 +301,35 @@ $button-border-radius: 6px;
 .button {
   height: 40px !important;
   line-height: 40px !important;
+}
+
+.app-color {
+  color: $application_main_color;
+}
+
+.icon-band {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  @include background($app-yellow);
+  width: 50px;
+  margin-left: -11px;
+  padding-left: 0;
+  color: $application_main_color;
+  text-align: center;
+  padding: 13px 0;
+
+  span {
+    font-size: em(9);
+    font-family: latobold;
+    display: block;
+    &.day {
+
+    }
+
+    &.day-alpha {
+      text-transform: uppercase;
+    }
+  }
 }

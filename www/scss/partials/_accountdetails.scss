@@ -82,7 +82,7 @@
       top: 0px;
 
       &:before {
-        font-size: em(18);
+        font-size: em(15);
         line-height: 38px;
         height: 40px;
       }
@@ -106,7 +106,7 @@
       .item {
         margin-top: 2px;
         margin-bottom: 2px;
-        padding-right: 42px;
+        padding-right: 50px;
         -moz-transition: height .5s;
         -ms-transition: height .5s;
         -o-transition: height .5s;
@@ -116,7 +116,7 @@
         border: none;
 
         &.item-icon-left {
-          padding-left: 44px;
+          padding-left: 50px;
         }
 
         &:first-child {
@@ -125,10 +125,16 @@
         }
 
         .icon {
+          font-size: 25px !important;
+
+          &.ion-chevron-up{
+            @extend .app-color;
+          }
+
           &:first-child, &:last-child {
             &:before {
               position: absolute;
-              top: 14px;
+              top: 16px;
               font-size: em(14);
             }
           }

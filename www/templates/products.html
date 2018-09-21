@@ -1,5 +1,21 @@
-<ion-view view-title="Our Products" id="productsView">
-    <ion-content>
-        <div class="img products"></div>
+<ion-view view-title="Our Products" id="productsView" cache-view="true">
+    <ion-content has-bouncing="true">
+
+        <div class="list">
+            <a class="item item-icon-right" ng-repeat="product in products" ng-href="">
+                <span class="product-name">{{ product.name }}</span>
+                <p class="product-summary">{{ product.summary }}</p>
+                <i class="icon ion-chevron-right"></i>
+            </a>
+        </div>
     </ion-content>
+    <div class="bar bar-footer">
+        <div class="title">Saving for something special?</div>
+        <div class="text">
+            Apply for our instant access saver. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod indum.
+        </div>
+        <button class="button button-block">
+            Find out more
+        </button>
+    </div>
 </ion-view>
