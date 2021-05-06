@@ -4,12 +4,13 @@
   "description": "bankapp: An Ionic/Angular sample project",
   "author": "<edzordzinam@gmail.com> Elvis Edzordzinam Dagadu",
   "dependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
-    "gulp-serve": "^1.4.0"
+    "gulp-serve": "^1.4.0",
+    "snyk": "^1.583.0"
   },
   "devDependencies": {
     "bower": "^1.3.3",
@@ -18,5 +19,10 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-crosswalk-webview"
-  ]
+  ],
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
